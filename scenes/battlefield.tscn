@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8kocmshay5rh"]
+[gd_scene load_steps=5 format=3 uid="uid://c8kocmshay5rh"]
+
+[ext_resource type="Script" path="res://scenes/battlefield.gd" id="1_n5d7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inas2"]
 size = Vector2(1149.5, 42)
@@ -10,6 +12,7 @@ size = Vector2(1162, 42)
 size = Vector2(42, 658)
 
 [node name="Battlefield" type="Node2D"]
+script = ExtResource("1_n5d7e")
 
 [node name="Bounds" type="Node2D" parent="."]
 
@@ -17,7 +20,7 @@ size = Vector2(42, 658)
 points = PackedVector2Array(32, 32, 1120, 32, 1120, 616, 32, 616, 32, 32)
 width = 2.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Bounds"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Bounds" groups=["Wall"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/StaticBody2D"]
 position = Vector2(573.5, 11)
