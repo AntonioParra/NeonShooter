@@ -1,5 +1,6 @@
 extends CharacterBody2D
-class_name Player
+
+@export var target: Node2D
 
 const ACCELERATION_MULT = 500
 const MAX_SPEED = 500
@@ -13,19 +14,11 @@ func _physics_process(delta: float) -> void:
 	if not alive:
 		return
 	
-	look_at(get_global_mouse_position())
+	if target != null:
+		look_at(target.global_position)
+		acceleration = target.global_position - global_position
 	
 	
-	acceleration = Vector2.ZERO
-	
-	if Input.is_action_pressed("z_left"):
-		acceleration.x -= 1
-	if Input.is_action_pressed("z_right"):
-		acceleration.x += 1
-	if Input.is_action_pressed("z_up"):
-		acceleration.y -= 1
-	if Input.is_action_pressed("z_down"):
-		acceleration.y += 1
 	
 	velocity += acceleration.normalized() * ACCELERATION_MULT * delta
 	velocity *= 0.99

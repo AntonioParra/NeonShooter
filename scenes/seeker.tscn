@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu6anqkwkmokj"]
+
+[ext_resource type="Texture2D" uid="uid://oaaysk1usl2d" path="res://assets/img/Seeker.png" id="1_5t5jf"]
+[ext_resource type="Script" path="res://scenes/seeker.gd" id="1_ksadg"]
+
+[node name="Seeker" type="CharacterBody2D"]
+script = ExtResource("1_ksadg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5t5jf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-9, -13, 18, -4, 18, 4, -9, 13, -17, 6, -9, 6, -9, -6, -17, -6)
