@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d067i4bx02py7"]
+
+[ext_resource type="Texture2D" uid="uid://caw4psxnytifj" path="res://assets/img/Wanderer.png" id="1_7ye4y"]
+[ext_resource type="Script" path="res://scenes/wanderer.gd" id="1_gm6g1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ipm2d"]
+radius = 13.0
+
+[node name="Wanderer" type="CharacterBody2D"]
+script = ExtResource("1_gm6g1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7ye4y")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+shape = SubResource("CircleShape2D_ipm2d")

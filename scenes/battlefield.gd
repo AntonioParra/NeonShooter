@@ -4,6 +4,7 @@ extends Node2D
 
 var player_scene = preload("res://scenes/player.tscn")
 var seeker_scene = preload("res://scenes/seeker.tscn")
+var wanderer_scene = preload("res://scenes/wanderer.tscn")
 
 var player: Player
 
@@ -15,4 +16,8 @@ func _ready() -> void:
 	seeker.target = player
 	seeker.position = Vector2(100, 100)
 	add_child(seeker)
+	
+	var wanderer = wanderer_scene.instantiate()
+	wanderer.position = Vector2(300, 100)
+	add_child(wanderer)
 
