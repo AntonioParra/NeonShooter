@@ -32,7 +32,6 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.length() > MAX_SPEED:
 		velocity = velocity.normalized() * MAX_SPEED
-	
 	velocity_aux = velocity
 	move_and_slide()
 	
@@ -41,8 +40,6 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		
 		if collider.is_in_group("Wall"):
-			var normal = collision.get_normal()
-			if(absf(normal.x) > 0.5):
-				velocity.x = -1 * velocity_aux.x
-			if(absf(normal.y) > 0.5):
-				velocity.y = -1 * velocity_aux.y
+			velocity = velocity_aux.bounce(collision.get_normal())
+		if collider.is_in_group("Enemy"):
+			velocity = velocity_aux.bounce(collision.get_normal())
